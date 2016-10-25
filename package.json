@@ -1,0 +1,48 @@
+{
+  "name": "multisolver",
+  "version": "0.1.1",
+  "scripts": {
+    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "lite": "lite-server",
+    "postinstall": "typings install",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@angular/common": "^2.0.1",
+    "@angular/compiler": "^2.0.1",
+    "@angular/core": "^2.0.1",
+    "@angular/forms": "^2.0.1",
+    "@angular/http": "^2.0.1",
+    "@angular/platform-browser": "^2.0.1",
+    "@angular/platform-browser-dynamic": "^2.0.1",
+    "@angular/router": "3.0.0",
+    "@angular/upgrade": "^2.0.1",
+    "angular2-in-memory-web-api": "0.0.21",
+    "bootstrap": "*",
+    "concurrently": "^3.0.0",
+    "core-js": "*",
+    "reflect-metadata": "*",
+    "rxjs": "*",
+    "systemjs": "^0.19.39",
+    "zone.js": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.41",
+    "concurrently": "*",
+    "lite-server": "*",
+    "typescript": "*",
+    "typings": "*",
+    "gaze-run-interrupt": "*"
+  },
+  "main": "systemjs.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://dennistreysa@bitbucket.org/dennistreysa/multisolver-new.git"
+  },
+  "author": "",
+  "homepage": "https://bitbucket.org/dennistreysa/multisolver-new#readme",
+  "description": ""
+}
