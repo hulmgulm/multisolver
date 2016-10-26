@@ -21,8 +21,6 @@ export class MSCrypto{
             data.modules.push(module.do());
         }
 
-        console.log(data);
-
         return data;
     }
 }

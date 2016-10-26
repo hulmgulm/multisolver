@@ -20,7 +20,7 @@
 
 export class Rotations {
 
-    public rotateString(inputString:string, offset:number):string{
+    public rotateStringAlpha(inputString:string, offset:number):string{
         if(offset > 0){
             
             let returnString = inputString.split("").map(function(c:string):string{
@@ -43,5 +43,22 @@ export class Rotations {
         }else{
             return inputString;
         }
+    }
+
+    public rotateStringDigits(inputString:string, offset:number):string{
+
+        let returnString = inputString.split("").map(function(c:string):string{
+                
+            let charCode:number = c.charCodeAt(0);
+
+            if(charCode >= 0x30 && charCode <= 0x39){
+                return String.fromCharCode( ((charCode - 0x30 + offset) % 10) + 0x30 );
+            }else{
+                return c;
+            }
+
+        }).join("");
+
+        return returnString;
     }
 }

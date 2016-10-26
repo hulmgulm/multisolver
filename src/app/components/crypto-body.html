@@ -1,0 +1,142 @@
+<section body_padding id="inputSection">
+    
+    <h2 class="text-center headline-big">{{'INPUT' | translate}}</h2>
+    
+    <hr>
+
+    <div class="container">
+        <div class="row row-centered">
+            <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-centered">
+                <textarea
+                    class="form-control"
+                    rows="6"
+                    [(ngModel)]="inputCryptoStr"
+                ></textarea>
+            </div>
+        </div>
+
+        <div class="row row-centered">
+            <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-centered">
+                <p class="text-center">
+                    <label class="passwordInput" for="inputCryptoPassword1">{{'PASSWORDINPUT_1' | translate}} : </label>
+                    <input [(ngModel)]="inputCryptoPassword1" id="inputCryptoPassword1" type="text" class="form-control">
+                </p>
+                <p class="text-center">
+                    <label class="passwordInput" for="inputCryptoPassword2">{{'PASSWORDINPUT_2' | translate}} : </label>
+                    <input [(ngModel)]="inputCryptoPassword2" id="inputCryptoPassword2" type="text" class="form-control">
+                </p>
+                <p class="text-center">
+                    <a
+                        (click)="onButtonSolveClick()"
+                        [ngClass]="{'btn': true, 'btn-green': true, 'text-center': true, 'btn-deactivated': (inputCryptoStr.length === 0), 'disabled': (inputCryptoStr.length === 0)}">{{'BTN_SOLVE' | translate}}</a>
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row row-centered">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-centered">
+                <p class="text-center">
+                    {{'BUY_ME_A_COFFEE' | translate}}
+                </p>
+                <div class="text-center">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="2JBKM5MH83LXG">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        
+        <div class="row text-center" *ngFor="let module of modulesData.modules">
+            <!-- Check if there is any data -->
+            <div *ngIf="module.data && getObjectLength(module.data);">
+
+                <h3>{{module.identifier | translate}}</h3>
+
+                <hr>
+
+                <!-- Single textbox -->
+                    <div *ngIf="!isObject(module.data);">
+                        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-centered">
+                            <div class="textarea-wrapper">
+                                <textarea 
+                                    rows="5" 
+                                    class="form-control"
+                                    aria-autocomplete="list" 
+                                    aria-haspopup="true"
+                                    spellcheck="false"
+                                >{{module.data}}</textarea>
+                                <span><i class="fa fa-check-square-o"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                
+                <!-- Multiple Textboxes -->
+                    <div *ngIf="isObject(module.data);">
+
+                        <!-- No Sub-Modules -->
+                            <div *ngIf="module.data.length == 1;">
+                                
+                                <div *ngIf="module.data[0].data.length == 1;">one</div>
+
+                                <div *ngIf="module.data[0].data.length == 2;">two</div>
+
+                                <div *ngIf="module.data[0].data.length >= 3;">
+                                    <div class="text-center col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-centered" *ngFor="let element of module.data[0].data">
+                                        <label>{{element.identifier | translate}}</label>
+                                        <div class="textarea-wrapper">
+                                            <textarea 
+                                                rows="5" 
+                                                class="form-control"
+                                                aria-autocomplete="list" 
+                                                aria-haspopup="true"
+                                                spellcheck="false"
+                                            >{{element.data}}</textarea>
+                                            <span><i class="fa fa-check-square-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        <!-- Multiple Sub-Modules -->
+                            <div *ngIf="module.data.length > 1;">
+                                <!-- Loop through sub-modules -->
+                                <div class="row text-center" *ngFor="let subModule of module.data">
+                                    <div *ngIf="subModule.data.length > 0;">
+
+                                        <h4>{{subModule.identifier | translate}}</h4>
+
+                                        <div *ngIf="subModule.data.length == 1;">one</div>
+
+                                        <div *ngIf="subModule.data.length == 2;">two</div>
+
+                                        <div *ngIf="subModule.data.length >= 3;">
+                                            <div class="text-center col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-centered" *ngFor="let element of subModule.data">
+                                                <label>{{element.identifier | translate}}</label>
+                                                <div class="textarea-wrapper">
+                                                    <textarea 
+                                                        rows="6" 
+                                                        class="form-control"
+                                                        aria-autocomplete="list" 
+                                                        aria-haspopup="true"
+                                                        spellcheck="false"
+                                                    >{{element.data}}</textarea>
+                                                    <span><i class="fa fa-check-square-o"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</section>

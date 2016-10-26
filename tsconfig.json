@@ -1,9 +1,21 @@
 {
+  "files": [
+        "src/app/main.ts",
+        "src/app/app.module.ts",
+        "src/app/components/*.ts",
+        "src/app/directives/*.ts",
+        "src/app/shared/helper/*.ts",
+        "src/app/shared/modules/*.ts",
+        "src/app/shared/modules/crypto/*.ts",
+        "src/app/shared/modules/crypto/data-containers/*.ts",
+        "src/app/shared/modules/crypto/modules/*.ts",
+        "src/app/translate/*.ts"
+  ],
   "compilerOptions": {
-    "target": "es5",
-    "removeComments": true,
-    "outDir": "build",
-    "module": "commonjs",
+    "target": "es6",
+    "removeComments": false,
+    "outDir": "./build/app",
+    "module": "system",
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -11,6 +23,7 @@
     "noImplicitAny": false
   },
   "exclude": [
+    "gulpfile.ts",
     "node_modules",
     "build"
   ]

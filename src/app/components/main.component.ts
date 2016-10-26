@@ -17,6 +17,7 @@ export class MainComponent implements OnInit {
     constructor(private _translate: TranslateService) { }
 
     ngOnInit() {
+
         // standing data
         this.supportedLanguages = [
           { display: 'English', value: 'en' },

@@ -10,24 +10,32 @@ import { Component } from '@angular/core';
                                 <div class="navbar navbar-default navbar-fixed-top past-main" role="navigation">
                                     <div id="navbar-container" class="container">
                                         <div class="navbar-header">
-                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                            <button type="button"
+                                                class="navbar-toggle"
+                                                data-toggle="collapse"
+                                                data-target=".navbar-collapse">
                                                 <span class="sr-only">Toggle navigation</span>
                                                 <span class="icon-bar"></span>
                                                 <span class="icon-bar"></span>
                                                 <span class="icon-bar"></span>
                                             </button>
                                             <!-- For Text Logo -->
-                                            <a class="text-nowrap navbar-brand logo" href="#"><span><i class="fa fa-cogs" aria-hidden="true"></i></span> <span>Multi</span>Solver</a>
+                                            <a class="text-nowrap navbar-brand logo" href="#">
+                                                <span>
+                                                    <i class="fa fa-cogs" aria-hidden="true"></i>
+                                                </span>
+                                                <span>Multi</span>Solver
+                                            </a>
                                         </div>
                                         <div id="navbar-links" class="navbar-collapse collapse">
                                             <ul class="nav navbar-nav navbar-right custom_nav mobnav" id="top-menu">
-                                            <li class="active"><a href="#headerArea">CRYPTO</a></li>
-                                            <li><a href="#featuresSection">FEATURES</a></li>
-                                            <li><a href="#priceList">PRICE LIST</a></li>
-                                            <li><a href="#videoSection">Video</a></li>
-                                            <li><a href="#testimonila">TESTIMONIAL</a></li>
-                                            <li><a href="#clients">CLIENTS</a></li>
-                                            <li><a href="#contact">CONTACT</a></li>
+                                            <li class="active"><a href="#crypto">CRYPTO</a></li>
+                                            <li><a href="#URL_2">URL_2</a></li>
+                                            <li><a href="#URL_3">URL_3</a></li>
+                                            <li><a href="#URL_4">URL_4</a></li>
+                                            <li><a href="#URL_5">URL_5</a></li>
+                                            <li><a href="#URL_6">URL_6</a></li>
+                                            <li><a href="#URL_7">URL_7</a></li>
                                             </ul>
                                         </div><!--/.nav-collapse -->
                                     </div>
