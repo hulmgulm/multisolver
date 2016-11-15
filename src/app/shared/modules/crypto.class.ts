@@ -1,13 +1,13 @@
 import { DataContainers } from './crypto/data-containers/dataContainers.class';
 import { _Rotations } from './crypto/modules/_rotations.class';
 
-export class MSCrypto{
+export class MSCrypto {
 
     private _modules = [
         new _Rotations()
     ];
 
-    public do(inputString:string, password1:string, password2:string){
+    public do(inputString:string, password1:string, password2:string) {
 
         let data = {
             "modules" : []

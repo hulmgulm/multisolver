@@ -30,7 +30,7 @@ export class _Rotations extends Rotations {
     /*
      *  Main routine
      */
-    public do(){
+    public do() {
 
         let returnData = {
             "identifier" : this._Identifier,
@@ -38,36 +38,36 @@ export class _Rotations extends Rotations {
         };
 
         /* Alpha */
-        if( this.checkConstraintsAlpha() ) {
+        if ( this.checkConstraintsAlpha() ) {
 
             let inputString = DataContainers.getInstance().getData("Trimmed");
             let identifierAlpha:string = this._Identifier + "_" + this._IdentifierPostfixAlpha;
 
             let tmpData = [];
 
-            for(let rotation:number = 1; rotation < 26; rotation++){
+            for (let rotation:number = 1; rotation < 26; rotation++) {
 
                 let rotatedString = super.rotateStringAlpha(inputString, rotation);
 
-                tmpData.push({"identifier" : identifierAlpha + "_" + rotation.toString(), "data" : rotatedString});;
+                tmpData.push({"identifier" : identifierAlpha + "_" + rotation.toString(), "data" : rotatedString});
             }
 
             returnData.data.push({"identifier" : identifierAlpha, "data" : tmpData});
         }
 
         /* Digits */
-        if( this.checkConstraintsDigits() ) {
+        if ( this.checkConstraintsDigits() ) {
 
             let inputString = DataContainers.getInstance().getData("Trimmed");
             let identifierDigits:string = this._Identifier + "_" + this._IdentifierPostfixDigits;
 
             let tmpData = [];
 
-            for(let rotation:number = 1; rotation < 10; rotation++){
+            for (let rotation:number = 1; rotation < 10; rotation++) {
 
                 let rotatedString = super.rotateStringDigits(inputString, rotation);
 
-                tmpData.push({"identifier" : identifierDigits + "_" + rotation.toString(), "data" : rotatedString});;
+                tmpData.push({"identifier" : identifierDigits + "_" + rotation.toString(), "data" : rotatedString});
             }
 
             returnData.data.push({"identifier" : identifierDigits, "data" : tmpData});

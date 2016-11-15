@@ -12,19 +12,22 @@
         "src/app/translate/*.ts"
   ],
   "compilerOptions": {
-    "target": "es6",
-    "removeComments": false,
-    "outDir": "./build/app",
+    "target": "es5",
+    "removeComments": true,
+    //"outDir": "./app",
+    "outFile": "./app/app.js",
     "module": "system",
     "moduleResolution": "node",
-    "sourceMap": true,
+    "sourceMap": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "noImplicitAny": false
+    "noImplicitAny": true
   },
   "exclude": [
-    "gulpfile.ts",
+    "*gulpfile.ts",
     "node_modules",
-    "build"
+    "build",
+    "typings",
+    ".vscode"
   ]
 }

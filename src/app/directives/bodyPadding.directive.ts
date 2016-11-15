@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, Renderer, HostBinding, HostListener, AfterViewInit } from '@angular/core';
+import { Directive, ElementRef, Renderer, HostListener, AfterViewInit } from '@angular/core';
 
 @Directive({
     selector: '[body_padding]'
@@ -23,22 +23,22 @@ export class BodyPaddingDirective implements AfterViewInit {
         this.onResize();
     }
 
-    @HostListener('window:resize', ['$event.target']) 
+    @HostListener('window:resize', ['$event.target'])
     onResize() {
-        
+
         let tmpPadding:number = this.getSize(this._navbarContainer.clientHeight, this._navbarLinks.clientHeight);
 
-        if(this._padding !== tmpPadding){ 
+        if (this._padding !== tmpPadding) {
             this._padding = tmpPadding;
             this._renderer.setElementStyle(this._elementRef.nativeElement, 'padding-top', this._padding.toString());
         }
     }
 
-    private getSize(container: number, links: number):number{
+    private getSize(container: number, links: number):number {
 
         let offset:number = 10;
 
-        if(container === links){
+        if (container === links) {
             return container + offset;
         }
 

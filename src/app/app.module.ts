@@ -16,4 +16,4 @@ import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService }   from './tran
 	bootstrap:    [ MainComponent ],
 	providers:    [ TRANSLATION_PROVIDERS, TranslateService ]
 })
-export class AppModule { }
+export class AppModule {}

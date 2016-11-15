@@ -9,14 +9,16 @@ import { TranslateService } from '../translate';
 
 		            <multisolver-footer></multisolver-footer>`
 })
-export class MainComponent implements OnInit { 
-    
+export class MainComponent implements OnInit {
+
     public translatedText: string;
     public supportedLanguages: any[];
 
     constructor(private _translate: TranslateService) { }
 
     ngOnInit() {
+
+        console.log("ngOnInit");
 
         // standing data
         this.supportedLanguages = [

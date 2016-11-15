@@ -20,19 +20,19 @@
 
 export class Rotations {
 
-    public rotateStringAlpha(inputString:string, offset:number):string{
-        if(offset > 0){
-            
-            let returnString = inputString.split("").map(function(c:string):string{
-                
+    public rotateStringAlpha(inputString:string, offset:number):string {
+        if (offset > 0) {
+
+            let returnString = inputString.split("").map(function(c:string):string {
+
                 let charCode:number = c.charCodeAt(0);
 
-                if(charCode >= 0x41 && charCode <= 0x5a){
+                if (charCode >= 0x41 && charCode <= 0x5a) {
                     // Uppercase
                     return String.fromCharCode((( 26 + (charCode - 0x41) - offset) % 26) + 0x41);
-                }else if(charCode >= 0x61 && charCode <= 0x7a){
+                } else if (charCode >= 0x61 && charCode <= 0x7a) {
                     return String.fromCharCode((( 26 + (charCode - 0x61) - offset) % 26) + 0x61);
-                }else{
+                } else {
                     return c;
                 }
 
@@ -40,20 +40,20 @@ export class Rotations {
 
             return returnString;
 
-        }else{
+        } else {
             return inputString;
         }
     }
 
-    public rotateStringDigits(inputString:string, offset:number):string{
+    public rotateStringDigits(inputString:string, offset:number):string {
 
-        let returnString = inputString.split("").map(function(c:string):string{
-                
+        let returnString = inputString.split("").map(function(c:string):string {
+
             let charCode:number = c.charCodeAt(0);
 
-            if(charCode >= 0x30 && charCode <= 0x39){
+            if (charCode >= 0x30 && charCode <= 0x39) {
                 return String.fromCharCode( ((charCode - 0x30 + offset) % 10) + 0x30 );
-            }else{
+            } else {
                 return c;
             }
 

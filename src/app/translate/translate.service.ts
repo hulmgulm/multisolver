@@ -31,6 +31,6 @@ export class TranslateService {
 
     public instant(key: string) {
         // call translation
-        return this.translate(key); 
+        return this.translate(key);
     }
 }

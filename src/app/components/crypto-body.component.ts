@@ -1,10 +1,9 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { BodyPaddingDirective } from '../directives/bodyPadding.directive';
+import { Component } from '@angular/core';
 import { MSCrypto } from '../shared/modules/crypto.class';
 
 @Component({
 	selector: 'multisolver-crypto-body',
-	templateUrl: './app/components/crypto-body.html'
+	templateUrl: 'app/components/crypto-body.html'
 })
 export class CryptoBodyComponent {
 	private inputCryptoStr:string = "";
@@ -13,21 +12,21 @@ export class CryptoBodyComponent {
 	private _Crypto = new MSCrypto();
 
 	private modulesData = {
-		"modules" : 
+		"modules" :
 			[
 				{ "identifier" : "", "data" : "" },
 			]
 	};
 
-	public onButtonSolveClick(){
+	public onButtonSolveClick() {
 		this.modulesData = this._Crypto.do(this.inputCryptoStr, this.inputCryptoPassword1, this.inputCryptoPassword2);
 	}
 
-	public getObjectLength(obj):number{
+	public getObjectLength(obj):number {
 		return Object.keys(obj).length;
 	}
 
-	public isObject(obj):boolean{
-		return typeof(obj) == 'object';
+	public isObject(obj):boolean {
+		return typeof(obj) === 'object';
 	}
 }

@@ -1,6 +1,6 @@
 import { DataContainerGeneric } from './generic.class';
 
-export class DataContainers{
+export class DataContainers {
 
     private static _instance:DataContainers = new DataContainers();
 
@@ -15,29 +15,31 @@ export class DataContainers{
 
     constructor() {
 
-        if(DataContainers._instance){
+        if (DataContainers._instance) {
             throw new Error("Error: Instantiation failed: Use DataContainers.getInstance() instead of new.");
         }
 
         DataContainers._instance = this;
     }
 
-    public static getInstance():DataContainers{
+    public static getInstance():DataContainers {
         return DataContainers._instance;
     }
 
-    public setData(inputString:string){
-        for(let c in this._containers){
-            this._containers[c].setData(inputString);
+    public setData(inputString:string) {
+        for (let c in this._containers) {
+            if (this._containers.hasOwnProperty(c)) {
+                this._containers[c].setData(inputString);
+            }
         }
     }
 
-    public getData(name:string):string{
-        
-        if( name in this._containers ){
+    public getData(name:string):string {
+
+        if ( name in this._containers ) {
             return this._containers[name].getData();
         }
-        
+
         throw new Error("Error: Could not find data container '" + name + "'.");
     }
 }

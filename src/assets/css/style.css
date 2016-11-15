@@ -1372,3 +1372,7 @@ textarea{
 	white-space: nowrap;
 	padding-top: 5px;
 }
+
+.preloader{
+	text-align: center;
+}
