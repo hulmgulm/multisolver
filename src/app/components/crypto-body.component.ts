@@ -21,12 +21,4 @@ export class CryptoBodyComponent {
 	public onButtonSolveClick() {
 		this.modulesData = this._Crypto.do(this.inputCryptoStr, this.inputCryptoPassword1, this.inputCryptoPassword2);
 	}
-
-	public getObjectLength(obj):number {
-		return Object.keys(obj).length;
-	}
-
-	public isObject(obj):boolean {
-		return typeof(obj) === 'object';
-	}
 }
