@@ -18,8 +18,6 @@ export class MainComponent implements OnInit {
 
     ngOnInit() {
 
-        console.log("ngOnInit");
-
         // standing data
         this.supportedLanguages = [
           { display: 'English', value: 'en' },

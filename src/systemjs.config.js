@@ -55,8 +55,6 @@
 	// Add package entries for angular packages
 	ngPackageNames.forEach(setPackageConfig);
 
-	console.log(packages);
-
 	var config = {
 		paths: paths,
 		map: map,
