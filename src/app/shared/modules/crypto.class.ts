@@ -1,9 +1,11 @@
 import { DataContainers } from './crypto/data-containers/dataContainers.class';
+import { _Abaddon } from './crypto/modules/_abaddon.class';
 import { _Rotations } from './crypto/modules/_rotations.class';
 
 export class MSCrypto {
 
     private _modules = [
+        new _Abaddon(),
         new _Rotations()
     ];
 
