@@ -53,88 +53,90 @@
         <hr>
         
         <div class="row text-center" *ngFor="let module of modulesData.modules">
-            <!-- Check if there is any data -->
-            <div *ngIf="module.data && getObjectLength(module.data);">
+  
+            <!-- No sub-modules, no label -->
+            <div *ngIf="module.hasOwnProperty('data') && module.data">
+                <h3>{{module.identifier | translate}}</h3>
+
+                <hr>
+
+                <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-centered">
+                    <div class="textarea-wrapper">
+                        <textarea 
+                            rows="5" 
+                            class="form-control"
+                            aria-autocomplete="list" 
+                            aria-haspopup="true"
+                            spellcheck="false"
+                        >{{module.data}}</textarea>
+                        <span><i class="fa fa-check-square-o"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- With sub-modules -->
+            <div *ngIf="module.hasOwnProperty('folders') && module.folders.length">
 
                 <h3>{{module.identifier | translate}}</h3>
 
                 <hr>
 
-                <!-- Single textbox -->
-                    <div *ngIf="!isObject(module.data);">
-                        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-centered">
-                            <div class="textarea-wrapper">
-                                <textarea 
-                                    rows="5" 
-                                    class="form-control"
-                                    aria-autocomplete="list" 
-                                    aria-haspopup="true"
-                                    spellcheck="false"
-                                >{{module.data}}</textarea>
-                                <span><i class="fa fa-check-square-o"></i></span>
+                <!-- Loop through sub-modules -->
+                <div class="row text-center" *ngFor="let subModule of module.folders">
+                    <div *ngIf="subModule.folders">
+
+                        <h4>{{subModule.identifier | translate}}</h4>
+
+                        <div *ngIf="subModule.folders.length === 1">
+                            <div class="text-center col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-centered" *ngFor="let element of subModule.folders">
+                                <label>{{element.identifier | translate}}</label>
+                                <div class="textarea-wrapper">
+                                    <textarea 
+                                        rows="5" 
+                                        class="form-control"
+                                        aria-autocomplete="list" 
+                                        aria-haspopup="true"
+                                        spellcheck="false"
+                                    >{{element.data}}</textarea>
+                                    <span><i class="fa fa-check-square-o"></i></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                
-                <!-- Multiple Textboxes -->
-                    <div *ngIf="isObject(module.data);">
 
-                        <!-- No Sub-Modules -->
-                            <div *ngIf="module.data.length == 1;">
-                                
-                                <div *ngIf="module.data[0].data.length == 1;">one</div>
-
-                                <div *ngIf="module.data[0].data.length == 2;">two</div>
-
-                                <div *ngIf="module.data[0].data.length >= 3;">
-                                    <div class="text-center col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-centered" *ngFor="let element of module.data[0].data">
-                                        <label>{{element.identifier | translate}}</label>
-                                        <div class="textarea-wrapper">
-                                            <textarea 
-                                                rows="5" 
-                                                class="form-control"
-                                                aria-autocomplete="list" 
-                                                aria-haspopup="true"
-                                                spellcheck="false"
-                                            >{{element.data}}</textarea>
-                                            <span><i class="fa fa-check-square-o"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        <!-- Multiple Sub-Modules -->
-                            <div *ngIf="module.data.length > 1;">
-                                <!-- Loop through sub-modules -->
-                                <div class="row text-center" *ngFor="let subModule of module.data">
-                                    <div *ngIf="subModule.data.length > 0;">
-
-                                        <h4>{{subModule.identifier | translate}}</h4>
-
-                                        <div *ngIf="subModule.data.length == 1;">one</div>
-
-                                        <div *ngIf="subModule.data.length == 2;">two</div>
-
-                                        <div *ngIf="subModule.data.length >= 3;">
-                                            <div class="text-center col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-centered" *ngFor="let element of subModule.data">
-                                                <label>{{element.identifier | translate}}</label>
-                                                <div class="textarea-wrapper">
-                                                    <textarea 
-                                                        rows="6" 
-                                                        class="form-control"
-                                                        aria-autocomplete="list" 
-                                                        aria-haspopup="true"
-                                                        spellcheck="false"
-                                                    >{{element.data}}</textarea>
-                                                    <span><i class="fa fa-check-square-o"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div *ngIf="subModule.folders.length === 2">
+                            <div class="text-center col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-centered" *ngFor="let element of subModule.folders">
+                                <label>{{element.identifier | translate}}</label>
+                                <div class="textarea-wrapper">
+                                    <textarea 
+                                        rows="5" 
+                                        class="form-control"
+                                        aria-autocomplete="list" 
+                                        aria-haspopup="true"
+                                        spellcheck="false"
+                                    >{{element.data}}</textarea>
+                                    <span><i class="fa fa-check-square-o"></i></span>
                                 </div>
                             </div>
+                        </div>
+
+                        <div *ngIf="subModule.folders.length >= 3">
+                            <div class="text-center col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-centered" *ngFor="let element of subModule.folders">
+                                <label>{{element.identifier | translate}}</label>
+                                <div class="textarea-wrapper">
+                                    <textarea 
+                                        rows="5" 
+                                        class="form-control"
+                                        aria-autocomplete="list" 
+                                        aria-haspopup="true"
+                                        spellcheck="false"
+                                    >{{element.data}}</textarea>
+                                    <span><i class="fa fa-check-square-o"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+                </div>
             </div>
         </div>
 

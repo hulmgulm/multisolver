@@ -34,7 +34,7 @@ export class _Rotations extends Rotations {
 
         let returnData = {
             "identifier" : this._Identifier,
-            "data" : []
+            "folders" : []
         };
 
         /* Alpha */
@@ -43,16 +43,16 @@ export class _Rotations extends Rotations {
             let inputString = DataContainers.getInstance().getData("Trimmed");
             let identifierAlpha:string = this._Identifier + "_" + this._IdentifierPostfixAlpha;
 
-            let tmpData = [];
+            let tmpFolder:{identifier:string, data:string}[] = [];
 
             for (let rotation:number = 1; rotation < 26; rotation++) {
 
                 let rotatedString = super.rotateStringAlpha(inputString, rotation);
 
-                tmpData.push({"identifier" : identifierAlpha + "_" + rotation.toString(), "data" : rotatedString});
+                tmpFolder.push({"identifier" : identifierAlpha + "_" + rotation.toString(), "data" : rotatedString});
             }
 
-            returnData.data.push({"identifier" : identifierAlpha, "data" : tmpData});
+            returnData.folders.push({"identifier" : identifierAlpha, "folders" : tmpFolder});
         }
 
         /* Digits */
@@ -61,16 +61,16 @@ export class _Rotations extends Rotations {
             let inputString = DataContainers.getInstance().getData("Trimmed");
             let identifierDigits:string = this._Identifier + "_" + this._IdentifierPostfixDigits;
 
-            let tmpData = [];
+            let tmpFolder:{identifier:string, data:string}[] = [];
 
             for (let rotation:number = 1; rotation < 10; rotation++) {
 
                 let rotatedString = super.rotateStringDigits(inputString, rotation);
 
-                tmpData.push({"identifier" : identifierDigits + "_" + rotation.toString(), "data" : rotatedString});
+                tmpFolder.push({"identifier" : identifierDigits + "_" + rotation.toString(), "data" : rotatedString});
             }
 
-            returnData.data.push({"identifier" : identifierDigits, "data" : tmpData});
+            returnData.folders.push({"identifier" : identifierDigits, "folders" : tmpFolder});
         }
 
         return returnData;
