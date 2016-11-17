@@ -10,7 +10,8 @@ export class DataContainers {
         "AlphaLatin" : new DataContainerGeneric(/[^A-Z]+/ig),
         "AlphaLatinWhiteSpace" : new DataContainerGeneric(/[^A-Z\s\r\n]+/ig),
         "Digits" : new DataContainerGeneric(/[^0-9]+/g),
-        "Whitespace" : new DataContainerGeneric(/[^\s\r\n]+/g)
+        "Whitespace" : new DataContainerGeneric(/[^\s\r\n]+/g),
+        "NonAlphaNum" : new DataContainerGeneric(/[A-Z0-9]+/ig)
     };
 
     constructor() {
