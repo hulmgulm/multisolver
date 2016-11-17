@@ -60,7 +60,7 @@
 
                 <hr>
 
-                <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-centered">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-centered">
                     <div class="textarea-wrapper">
                         <textarea 
                             rows="5" 
@@ -83,7 +83,22 @@
 
                 <!-- Loop through sub-modules -->
                 <div class="row text-center" *ngFor="let subModule of module.folders">
-                    <div *ngIf="subModule.folders">
+                    
+                    <div *ngIf="subModule.hasOwnProperty('data') && subModule.data.length">
+                        <label>{{subModule.identifier | translate}}</label>
+                        <div class="textarea-wrapper">
+                            <textarea 
+                                rows="5" 
+                                class="form-control"
+                                aria-autocomplete="list" 
+                                aria-haspopup="true"
+                                spellcheck="false"
+                            >{{subModule.data}}</textarea>
+                            <span><i class="fa fa-check-square-o"></i></span>
+                        </div>
+                    </div>
+
+                    <div *ngIf="subModule.hasOwnProperty('folders') && subModule.folders.length">
 
                         <h4>{{subModule.identifier | translate}}</h4>
 
