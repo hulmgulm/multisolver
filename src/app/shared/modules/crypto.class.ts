@@ -1,4 +1,5 @@
 import { DataContainers } from './crypto/data-containers/dataContainers.class';
+import { PasswordContainers } from './crypto/data-containers/passwordContainers.class';
 import { _Abaddon } from './crypto/modules/_abaddon.class';
 import { _Rotations } from './crypto/modules/_rotations.class';
 
@@ -16,8 +17,12 @@ export class MSCrypto {
         };
 
         // Initialize data containers
-        let Data = DataContainers.getInstance();
+        let Data:DataContainers = DataContainers.getInstance();
         Data.setData(inputString);
+
+        // Initialize password containers
+        let Passwords:PasswordContainers = PasswordContainers.getInstance();
+        Passwords.setPasswords([password1, password2]);
 
         for (let module of this._modules) {
             data.modules.push(module.do());
