@@ -19,6 +19,9 @@ const	gulp			= require('gulp'),
 		Config			= require('./gulpfile.config');
 
 // Config
+var g_clean = false;
+var g_lint = true;
+var g_copyLibs = false;
 var g_compressImages = true;
 var g_compressCSS = true;
 var g_compressHTML = true;
@@ -30,24 +33,26 @@ var config = new Config();
 // Cleanup
 gulp.task('clean', function(cb) {
 	return gulp.src(config.pathDest, {read: false})
-			.pipe(clean());
+			.pipe(gulpif(g_clean, clean()));
 });
 
 // Lint all TypeScript-files
 gulp.task('ts-lint', ['clean'], function () {
-	return gulp.src(config.pathSource + '**/*.ts')
-			.pipe(tslint({
-				formatter: 'prose'
-			}))
-			.pipe(tslint.report());
+	if(g_lint){
+		return gulp.src(config.pathSource + '**/*.ts')
+				.pipe(tslint({
+					formatter: 'prose'
+				}))
+				.pipe(tslint.report());
+	}
 });
 
 // Compile TypeScript-files
-gulp.task('compile-ts', ['ts-lint'], function () {
+function Compile(){
 	var sourceTsFiles = [	
-							config.pathSource + '**/*.ts',				//path to typescript files
-							config.pathLibraryTypeScriptDefinitions		//reference to library .d.ts files
-						];
+						config.pathSource + '**/*.ts',				//path to typescript files
+						config.pathLibraryTypeScriptDefinitions		//reference to library .d.ts files
+					];
 
 	var tsResult = gulp.src(sourceTsFiles)
 					   .pipe(sourcemaps.init())
@@ -57,20 +62,26 @@ gulp.task('compile-ts', ['ts-lint'], function () {
 	return tsResult.js
 			.pipe(sourcemaps.write('.'))
 			.pipe(gulp.dest(config.pathDest));
+}
+
+gulp.task('compile-ts', ['ts-lint'], function () {
+	return Compile();
 });
 
 // Copy all required libraries into build directory.
 gulp.task("copy-libs", ['compile-ts'], function() {
-	return gulp.src([
-			'core-js/client/shim.min.js',
-			'systemjs/dist/system-polyfills.js',
-			'systemjs/dist/system.src.js',
-			'reflect-metadata/Reflect.js',
-			'rxjs/**',
-			'zone.js/dist/**',
-			'@angular/**'
-		], {cwd: "node_modules/**"})
-		.pipe(gulp.dest(config.pathDest + "lib"));
+	if(g_copyLibs){
+		return gulp.src([
+				'core-js/client/shim.min.js',
+				'systemjs/dist/system-polyfills.js',
+				'systemjs/dist/system.src.js',
+				'reflect-metadata/Reflect.js',
+				'rxjs/**',
+				'zone.js/dist/**',
+				'@angular/**'
+			], {cwd: "node_modules/**"})
+			.pipe(gulp.dest(config.pathDest + "lib"));
+	}
 });
 
 // Copy other files
@@ -139,4 +150,8 @@ gulp.task('webserver', ['minify-js'], function() {
 	}));
 });
 
-gulp.task('default', ['webserver']);
+gulp.task('default', ['webserver'], function(){
+	gulp.watch(config.pathSource + '**/*.ts', function(){
+		Compile();
+	});
+});
