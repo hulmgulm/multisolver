@@ -8,7 +8,8 @@ export class PasswordContainers {
     private _containers = [
         {
             "AlphaLatin" : new DataContainerGeneric(/[^A-Z]+/ig),
-            "AlphaLatinNum" : new DataContainerGeneric(/[^A-Z0-9]+/ig)
+            "AlphaLatinNum" : new DataContainerGeneric(/[^A-Z0-9]+/ig),
+            "Digits" : new DataContainerGeneric(/[^0-9]+/ig)
         },
         {
             "AlphaLatin" : new DataContainerGeneric(/[^A-Z]+/ig),
