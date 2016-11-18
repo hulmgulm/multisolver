@@ -149,7 +149,6 @@ export class ADFVGX {
 		let matrix:string = this.createNewMatrix("ABCDEFGHIKLMNOPQRSTUVWXYZ", newMatrix);
 
 		if (password) {
-			console.log("pass");
 			// Sort password
 			let passwordSorted:string = password.split("").sort().join("");
 
