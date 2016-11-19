@@ -33,7 +33,12 @@ export class _ADFVGX extends ADFVGX {
      */
     public do() {
 
-        let returnData = {
+        interface IReturnData {
+            identifier: string;
+            folders: Array<Object>;
+        };
+
+        let returnData: IReturnData = {
             "identifier" : this._Identifier,
             "folders" : []
         };

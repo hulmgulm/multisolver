@@ -32,7 +32,12 @@ export class _Rotations extends Rotations {
      */
     public do() {
 
-        let returnData = {
+        interface IReturnData {
+            identifier: string;
+            folders: Array<Object>;
+        };
+
+        let returnData:IReturnData = {
             "identifier" : this._Identifier,
             "folders" : []
         };
@@ -58,7 +63,7 @@ export class _Rotations extends Rotations {
         /* Digits */
         if ( this.checkConstraintsDigits() ) {
 
-            let inputString = DataContainers.getInstance().getData("Trimmed");
+            let inputString:string = DataContainers.getInstance().getData("Trimmed");
             let identifierDigits:string = this._Identifier + "_" + this._IdentifierPostfixDigits;
 
             let tmpFolder:{identifier:string, data:string}[] = [];

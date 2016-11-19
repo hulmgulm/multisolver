@@ -18,9 +18,13 @@
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   */
 
+interface IPattern {
+    [identifier: string] : string;
+};
+
 export class Abaddon {
 
-    private AbaddonPattern = {
+    private AbaddonPattern:IPattern = {
             "¥¥µ" : "A",
             "¥þ¥" : "B",
             "þµµ" : "C",

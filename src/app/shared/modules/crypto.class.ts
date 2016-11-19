@@ -3,6 +3,7 @@ import { PasswordContainers } from './crypto/data-containers/passwordContainers.
 import { _Abaddon } from './crypto/modules/_abaddon.class';
 import { _ADFVGX } from './crypto/modules/_adfvgx.class';
 import { _AMSCO } from './crypto/modules/_amsco.class';
+import { _Atbash } from './crypto/modules/_atbash.class';
 import { _Rotations } from './crypto/modules/_rotations.class';
 
 export class MSCrypto {
@@ -11,12 +12,17 @@ export class MSCrypto {
         new _Abaddon(),
         new _ADFVGX(),
         new _AMSCO(),
+        new _Atbash(),
         new _Rotations()
     ];
 
     public do(inputString:string, password1:string, password2:string) {
 
-        let data = {
+        interface IData {
+            [modules:string]: Array<Object>;
+        };
+
+        let data:IData = {
             "modules" : []
         };
 
@@ -29,7 +35,7 @@ export class MSCrypto {
         Passwords.setPasswords([password1, password2]);
 
         for (let module of this._modules) {
-            data.modules.push(module.do());
+            data["modules"].push(module.do());
         }
 
         return data;

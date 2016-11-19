@@ -1,9 +1,13 @@
 export namespace StringHelper {
 
-    export function getNumberOfUniqueChars(s:string) {
+    export function getNumberOfUniqueChars(s:string):number {
 
-        let dict = {};
-        let counter = 0;
+        interface ICounter {
+            [char: string]: number;
+        };
+
+        let dict:ICounter = {};
+        let counter:number = 0;
 
         for (let c of s){
             if ( !(c in dict) ) {

@@ -34,10 +34,14 @@ export class AMSCO {
 			// Sort password
 			let passwordSorted:string = password.split("").sort().join("");
 
+			interface ILookup {
+				[identifier: string]: number;
+			};
+
 			// Build up original table
-			let lookUpOtoS = {};	// originalIndex -> sortedIndex
-			let org_table = [];
-			let cols = [];
+			let lookUpOtoS:ILookup = {};	// originalIndex -> sortedIndex
+			let org_table:Array<Array<string>> = [];
+			let cols:Array<Array<any>> = [];
 			for (let col:number = 0; col < password.length; col++) {
 				cols.push([]);
 				org_table.push([]);

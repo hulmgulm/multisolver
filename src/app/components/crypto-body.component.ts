@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { MSCrypto } from '../shared/modules/crypto.class';
 
+interface IData {
+    [modules:string]: Array<Object>;
+};
+
 @Component({
 	selector: 'multisolver-crypto-body',
 	templateUrl: 'app/components/crypto-body.html'
@@ -11,11 +15,8 @@ export class CryptoBodyComponent {
 	private inputCryptoPassword2:string = "";
 	private _Crypto = new MSCrypto();
 
-	private modulesData = {
-		"modules" :
-			[
-				{ "identifier" : "", "data" : "" },
-			]
+	private modulesData:IData = {
+		"modules" : []
 	};
 
 	public onButtonSolveClick() {

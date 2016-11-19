@@ -37,9 +37,10 @@ export class _AMSCO extends AMSCO {
         };
 
         if ( this.checkConstraints() ) {
-            let inputString:string = DataContainers.getInstance().getData("NonWhitespace");
-            let password:string = PasswordContainers.getInstance().getData("Digits");
-            returnData.data = super.decipher(inputString, password);
+            returnData.data = super.decipher(
+                    DataContainers.getInstance().getData("NonWhitespace"),
+                    PasswordContainers.getInstance().getData("Digits")
+                );
 
         }
 

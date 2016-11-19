@@ -1,11 +1,15 @@
 import { DataContainerGeneric } from './generic.class';
 
+interface IContainer {
+    [identifier: string]: DataContainerGeneric;
+};
+
 export class DataContainers {
 
     private static _instance:DataContainers = new DataContainers();
 
     // Data containers
-    private _containers = {
+    private _containers:IContainer = {
         "Trimmed" : new DataContainerGeneric(/^[\s\r\n]+|[\s\r\n]+$/g),
         "AlphaLatin" : new DataContainerGeneric(/[^A-Z]+/ig),
         "AlphaLatinNum" : new DataContainerGeneric(/[^A-Z0-9]+/ig),

@@ -55,7 +55,6 @@ export class _Abaddon extends Abaddon {
      *  \returns TRUE, if constraints are met
      */
     private checkConstraintsNormal():boolean {
-       // We need at least a char to rotate
        return DataContainers.getInstance().getData("NonAlphaNum").length > 0;
     }
 }

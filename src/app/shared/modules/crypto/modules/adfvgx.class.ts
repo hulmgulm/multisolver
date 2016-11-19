@@ -18,9 +18,13 @@
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   */
 
+interface IIndices {
+    [identifier: string] : number;
+};
+
 export class ADFVGX {
 
-    private indicesADFVGX = {
+    private indicesADFVGX:IIndices = {
         "A" : 0,
         "D" : 1,
         "F" : 2,
@@ -29,7 +33,7 @@ export class ADFVGX {
         "X" : 5
     };
 
-    private indicesADFGX = {
+    private indicesADFGX:IIndices = {
         "A" : 0,
         "D" : 1,
         "F" : 2,
@@ -54,7 +58,7 @@ export class ADFVGX {
 			// Create cols
 			let hasBlankChar:boolean[] = [];
 			let foundChar:boolean[] = [];
-			let cols = [];
+			let cols:Array<Array<string>> = [];
 			for (let c:number = 0; c < password.length; c++) {
 				cols.push([]);
 				hasBlankChar.push(null);
@@ -101,7 +105,7 @@ export class ADFVGX {
 				}
 			}
 
-			let colsOriginal = [];
+			let colsOriginal:Array<Array<string>> = [];
 
 			// Unsort
 			for (let p:number = 0; p < password.length; p++) {
@@ -155,7 +159,7 @@ export class ADFVGX {
 			// Create cols
 			let hasBlankChar:boolean[] = [];
 			let foundChar:boolean[] = [];
-			let cols = [];
+			let cols:Array<Array<string>> = [];
 			for (let c = 0; c < password.length; c++) {
 				cols.push([]);
 				hasBlankChar.push(null);
@@ -202,7 +206,7 @@ export class ADFVGX {
 				}
 			}
 
-			let colsOriginal = [];
+			let colsOriginal:Array<Array<string>> = [];
 
 			// Unsort
 			for (let p:number = 0; p < password.length; p++) {
