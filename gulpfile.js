@@ -19,9 +19,9 @@ const	gulp			= require('gulp'),
 		Config			= require('./gulpfile.config');
 
 // Config
-var g_clean = false;
+var g_clean = true;
 var g_lint = true;
-var g_copyLibs = false;
+var g_copyLibs = true;
 var g_compressImages = true;
 var g_compressCSS = true;
 var g_compressHTML = true;
@@ -56,7 +56,7 @@ function Compile(){
 
 	var tsResult = gulp.src(sourceTsFiles)
 					   .pipe(sourcemaps.init())
-					   .pipe(tsc(tsProject));
+					   .pipe(tsProject());
 
 	tsResult.dts.pipe(gulp.dest(config.pathDest));
 	return tsResult.js
