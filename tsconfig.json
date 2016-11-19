@@ -21,13 +21,15 @@
     "sourceMap": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "noResolve": false
   },
   "exclude": [
     "*gulpfile.ts",
     "node_modules",
     "build",
-    "typings",
+    "typings/*",
+     "typings/globals",
     ".vscode"
   ]
 }
