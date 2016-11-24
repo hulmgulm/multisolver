@@ -2,6 +2,8 @@
 
 MultiSolver is a website that aims to support decryption for various ciphers and other riddles Geocachers are faced with.
 
+A hosted version can be found here: [MultiSolver](http://geocaching.dennistreysa.de/multisolver/)
+
 ## Installation & Building ##
 
 If you want to install and build MultiSolver yourself just follow these steps:
@@ -9,8 +11,6 @@ If you want to install and build MultiSolver yourself just follow these steps:
 * Make sure you have `npm` and `gulp` globally installed for your system
 * Run `npm install` in the repository folder to download all needed modules
 * Run `gulp` in the repository folder to compile the code, minify everything into one single file and start a local web server
-
-A hosted version can be found here: [MultiSolver](http://geocaching.dennistreysa.de/multisolver/)
 
 ### **How can I help ?** ###
 
