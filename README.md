@@ -2,6 +2,11 @@
 
 MultiSolver is a website that aims to support decryption for various ciphers and other riddles Geocachers are faced with.
 
+## Installation & Building ##
+
+If you want to install and build MultiSolver yourself just follow these steps:
+
+
 A hosted version can be found here: [MultiSolver](http://geocaching.dennistreysa.de/multisolver/)
 
 ### **How can I help ?** ###
