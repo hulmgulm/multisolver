@@ -6,6 +6,9 @@ MultiSolver is a website that aims to support decryption for various ciphers and
 
 If you want to install and build MultiSolver yourself just follow these steps:
 
+* Make sure you have `npm` and `gulp` globally installed for your system
+* Run `npm install` in the repository folder to download all needed modules
+* Run `gulp` in the repository folder to compile the code, minify everything into one single file and start a local web server
 
 A hosted version can be found here: [MultiSolver](http://geocaching.dennistreysa.de/multisolver/)
 
@@ -19,12 +22,12 @@ Just write a mail to dennistreysa (at) gmail.com, or create an issue.
 * [Angular 2](https://angularjs.org/) by Google
 * [Bootstrap](http://getbootstrap.com/) by Twitter
 * [jQuery](https://jquery.com/) by jQuery Team
-* [Devicon](http://devicon.fr/) by Konpa
 
 
 ### **Resources** ###
 
-* Krispicons- Modern Flat Icons Freebie by [Nitish Kumar](https://www.behance.net/nitishkmrk)
+* [Devicon](http://devicon.fr/) by Konpa
+* [Krispicons- Modern Flat Icons](https://www.behance.net/nitishkmrk) Freebie by Nitish Kumar
 
 
 ### **Developers** ###
