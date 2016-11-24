@@ -8,7 +8,7 @@ A hosted version can be found here: [MultiSolver](http://geocaching.dennistreysa
 
 If you want to install and build MultiSolver yourself just follow these steps:
 
-* Make sure you have `npm` and `gulp` globally installed for your system
+* Make sure you have `npm` and `gulp` installed globally for your system
 * Run `npm install` in the repository folder to download all needed modules
 * Run `gulp` in the repository folder to compile the code, minify everything into one single file and start a local web server
 
