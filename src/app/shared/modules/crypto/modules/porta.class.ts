@@ -20,7 +20,7 @@
 
 export class Porta {
 
-    public decipher(inputString:string, password:string) {
+    public decipher(inputString:string, password:string):string {
 
 		password = password.toUpperCase().replace(/[^A-Z]+/g, "");
 
