@@ -5,6 +5,7 @@ import { _ADFVGX } from './crypto/modules/_adfvgx.class';
 import { _AMSCO } from './crypto/modules/_amsco.class';
 import { _Atbash } from './crypto/modules/_atbash.class';
 import { _Rotations } from './crypto/modules/_rotations.class';
+import { _Vigenere } from './crypto/modules/_vigenere.class';
 
 export class MSCrypto {
 
@@ -13,7 +14,8 @@ export class MSCrypto {
         new _ADFVGX(),
         new _AMSCO(),
         new _Atbash(),
-        new _Rotations()
+        new _Rotations(),
+        new _Vigenere()
     ];
 
     public do(inputString:string, password1:string, password2:string) {
