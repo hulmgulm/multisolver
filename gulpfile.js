@@ -15,6 +15,7 @@ const	gulp			= require('gulp'),
 		webserver		= require('gulp-webserver'),
 		runSequence		= require('run-sequence'),
 		gulpif			= require('gulp-if'),
+		del				= require('del'),
 		tsProject		= tsc.createProject("tsconfig.json");
 		Config			= require('./gulpfile.config');
 
@@ -121,14 +122,18 @@ gulp.task('copy-html', ['copy-css'], function() {
 });
 
 // Compress JavaScript-file
-gulp.task('minify-js', ['copy-html'], function() {  
-	// Compress all other js files
-	return gulp.src(config.pathDest + config.pathApp + '**/*.js')
-		.pipe(gulpif(config.compressJS, uglify({
-			preserveComments: false
-		})))
-		.pipe(rename({ suffix: '.min' }))
-		.pipe(gulp.dest(config.pathDest + config.pathApp));
+gulp.task('minify-js', ['copy-html'], function() {
+	if(config.compressJS){
+		// Delete all  previous compressed files
+		del(config.pathDest + config.pathApp + '**/*.min.js');
+		// Compress all other js files
+		return gulp.src(config.pathDest + config.pathApp + '**/*.js')
+			.pipe(uglify({
+				preserveComments: false
+			}))
+			.pipe(rename({ suffix: '.min' }))
+			.pipe(gulp.dest(config.pathDest + config.pathApp));
+	}
 });
 
 // Start webserver
