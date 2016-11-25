@@ -15,7 +15,15 @@ If you want to install and build MultiSolver yourself just follow these steps:
 ### Build-Config ###
 In the file *gulpfile.config.js* you can configure the following flags:
 
-* ???
+Flag | Description
+------------- | -------------
+`clean`  | Indicates of the `build` folder shall be cleaned (completely)
+`lint` | Indicates if the TypeScript files shall be linted
+`copyLibs` | Indicates if all needed libraries shall be copied from `node_modules` to `build/libs`
+`compressImages` | Indicates if all files below the `build/assets/img`-folder shall be minified
+`compressCSS` | Indicates if all CSS-files shall be minified
+`compressHTML` | Indicates if all HTML-files shall be minified
+`compressJS` | Indicates if all JavaScript-files shall be minified
 
 ## How can I help ? ##
 
