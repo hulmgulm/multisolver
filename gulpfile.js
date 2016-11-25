@@ -18,27 +18,18 @@ const	gulp			= require('gulp'),
 		tsProject		= tsc.createProject("tsconfig.json");
 		Config			= require('./gulpfile.config');
 
-// Config
-var g_clean = true;
-var g_lint = true;
-var g_copyLibs = true;
-var g_compressImages = true;
-var g_compressCSS = true;
-var g_compressHTML = true;
-var g_compressJS = true;
-
 // Load config file
 var config = new Config();
 
 // Cleanup
 gulp.task('clean', function(cb) {
 	return gulp.src(config.pathDest, {read: false})
-			.pipe(gulpif(g_clean, clean()));
+			.pipe(gulpif(config.clean, clean()));
 });
 
 // Lint all TypeScript-files
 gulp.task('ts-lint', ['clean'], function () {
-	if(g_lint){
+	if(config.lint){
 		return gulp.src(config.pathSource + '**/*.ts')
 				.pipe(tslint({
 					formatter: 'prose'
@@ -70,7 +61,7 @@ gulp.task('compile-ts', ['ts-lint'], function () {
 
 // Copy all required libraries into build directory.
 gulp.task("copy-libs", ['compile-ts'], function() {
-	if(g_copyLibs){
+	if(config.copyLibs){
 		return gulp.src([
 				'core-js/client/shim.min.js',
 				'systemjs/dist/system-polyfills.js',
@@ -96,31 +87,31 @@ gulp.task('copy-other', ['copy-libs'], function() {
 	}
 });
 
-// Compress all images
-gulp.task('compress-images', ['copy-other'], function() {
+// Copy (and compress) all images
+gulp.task('copy-images', ['copy-other'], function() {
 	var imgSrc = config.pathSource + config.pathImages + '**/*',
 		imgDst = config.pathDest + config.pathImages;
 
 	gulp.src(imgSrc)
 		.pipe(changed(imgDst))
-		.pipe(gulpif(g_compressImages, imagemin()))
+		.pipe(gulpif(config.compressImages, imagemin()))
 		.pipe(gulp.dest(imgDst));
 });
 
-// Minify all CSS-files
-gulp.task('minify-css', ['compress-images'], function() {
+// Copy (and compress) all CSS-files
+gulp.task('copy-css', ['copy-images'], function() {
 	return gulp.src(config.pathSource + '**/*.css')
-		.pipe(gulpif(g_compressCSS, cleanCSS({debug: false}, function(details) {
+		.pipe(gulpif(config.compressCSS, cleanCSS({debug: false}, function(details) {
 			// console.log(details.name + ': ' + details.stats.originalSize);
 			// console.log(details.name + ': ' + details.stats.minifiedSize);
 		})))
 		.pipe(gulp.dest(config.pathDest));
 });
 
-// Minify all HTML-files
-gulp.task('minify-html', ['minify-css'], function() {
+// Copy (and compress) all HTML-files
+gulp.task('copy-html', ['copy-css'], function() {
 	return gulp.src(config.pathSource + '**/*.html')
-		.pipe(gulpif(g_compressHTML, htmlmin({
+		.pipe(gulpif(config.compressHTML, htmlmin({
 						collapseWhitespace: true,
 						caseSensitive: true,
 						minifyJS: true,
@@ -130,10 +121,10 @@ gulp.task('minify-html', ['minify-css'], function() {
 });
 
 // Compress JavaScript-file
-gulp.task('minify-js', ['minify-html'], function() {  
+gulp.task('minify-js', ['copy-html'], function() {  
 	// Compress all other js files
 	return gulp.src(config.pathDest + config.pathApp + '**/*.js')
-		.pipe(gulpif(g_compressJS, uglify({
+		.pipe(gulpif(config.compressJS, uglify({
 			preserveComments: false
 		})))
 		.pipe(rename({ suffix: '.min' }))
@@ -151,7 +142,9 @@ gulp.task('webserver', ['minify-js'], function() {
 });
 
 gulp.task('default', ['webserver'], function(){
-	gulp.watch(config.pathSource + '**/*.ts', function(){
+	gulp.watch(config.pathSource + '**/*.ts', 
+	function(){
+		console.log("Changes were made, re-compiling!");
 		Compile();
 	});
 });
