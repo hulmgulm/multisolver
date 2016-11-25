@@ -14,7 +14,9 @@ export class DataContainers {
         "AlphaLatin" : new DataContainerGeneric(/[^A-Z]+/ig),
         "AlphaLatinNum" : new DataContainerGeneric(/[^A-Z0-9]+/ig),
         "AlphaLatinWhiteSpace" : new DataContainerGeneric(/[^A-Z\s\r\n]+/ig),
+        "AlphaLatinNumWhiteSpace" : new DataContainerGeneric(/[^A-Z0-9\s\r\n\t]+/ig),
         "Digits" : new DataContainerGeneric(/[^0-9]+/g),
+        "DigitsWhiteSpace" : new DataContainerGeneric(/[^0-9\s\r\n\t]+/g),
         "Whitespace" : new DataContainerGeneric(/[^\s\r\n]+/g),
         "NonWhitespace" : new DataContainerGeneric(/[\s\r\n]+/g),
         "NonAlphaNum" : new DataContainerGeneric(/[A-Z0-9]+/ig)
