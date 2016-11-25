@@ -6,6 +6,7 @@ import { _AMSCO } from './crypto/modules/_amsco.class';
 import { _Atbash } from './crypto/modules/_atbash.class';
 import { _Autokey } from './crypto/modules/_autokey.class';
 import { _Beaufort } from './crypto/modules/_beaufort.class';
+import { _Bifid } from './crypto/modules/_bifid.class';
 import { _Gronsfeld } from './crypto/modules/_gronsfeld.class';
 import { _Groundspeak } from './crypto/modules/_groundspeak.class';
 import { _Lemon } from './crypto/modules/_lemon.class';
@@ -23,6 +24,7 @@ export class MSCrypto {
         new _Atbash(),
         new _Autokey(),
         new _Beaufort(),
+        new _Bifid(),
         new _Gronsfeld(),
         new _Groundspeak(),
         new _Lemon(),
