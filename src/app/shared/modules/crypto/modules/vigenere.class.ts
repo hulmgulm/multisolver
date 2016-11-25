@@ -47,8 +47,7 @@ export class Vigenere {
 
 				return c;
 
-            }.bind(keyOffset)
-            ).join("");
+            }).join("");
 
 		}
 

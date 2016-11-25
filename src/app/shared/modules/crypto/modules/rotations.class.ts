@@ -99,8 +99,7 @@ export class Rotations {
 
             return c;
 
-        }.bind(rotation)
-        ).join("");
+        }).join("");
 
 		return returnString;
 	}
