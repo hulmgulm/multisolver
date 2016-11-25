@@ -26,6 +26,8 @@ export class _Rotations extends Rotations {
     private _Identifier:string = "ROTATIONS";
     private _IdentifierPostfixAlpha:string = "ALPHA";
     private _IdentifierPostfixDigits:string = "DIGITS";
+    private _IdentifierPostfix47:string = "47";
+    private _IdentifierPostfix123:string = "123";
 
     /*
      *  Main routine
@@ -78,6 +80,31 @@ export class _Rotations extends Rotations {
             returnData.folders.push({"identifier" : identifierDigits, "folders" : tmpFolder});
         }
 
+        /* ASCII */
+        if ( this.checkConstraints47() ) {
+
+            let inputString:string = DataContainers.getInstance().getData("Trimmed");
+            let identifier47:string = this._Identifier + "_" + this._IdentifierPostfix47;
+
+            let rotatedString = super.rotateString47(inputString);
+
+            returnData.folders.push({"identifier" : identifier47, "data" : rotatedString});
+        }
+
+        /* 123 */
+        if ( this.checkConstraintsAlpha() ) {
+
+            let inputString:string = DataContainers.getInstance().getData("Trimmed");
+            let identifier123:string = this._Identifier + "_" + this._IdentifierPostfix123;
+
+            let tmpFolder:{identifier:string, data:string}[] = [];
+
+            tmpFolder.push({"identifier" : identifier123 + "_LEFT", "data" : super.rotateString123(inputString)});
+            tmpFolder.push({"identifier" : identifier123 + "_RIGHT", "data" : super.rotateString123(inputString, true)});
+
+            returnData.folders.push({"identifier" : identifier123, "folders" : tmpFolder});
+        }
+
         return returnData;
     }
 
@@ -99,5 +126,15 @@ export class _Rotations extends Rotations {
     private checkConstraintsDigits():boolean {
        // We need at least a char to rotate
        return DataContainers.getInstance().getData("Digits").length > 0;
+    }
+
+    /*
+     *  Checks if the constraints for 'Rot47' are met
+     * 
+     *  \returns TRUE, if constraints are met
+     */
+    private checkConstraints47():boolean {
+       // We need at least a char to rotate
+       return DataContainers.getInstance().getData("Trimmed").length > 0;
     }
 }
