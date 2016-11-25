@@ -46,7 +46,7 @@ export class _Vigenere extends Vigenere {
     }
 
     /*
-     *  Checks if the constraints for 'alpha' are met
+     *  Checks if the constraints are met
      * 
      *  \returns TRUE, if constraints are met
      */
