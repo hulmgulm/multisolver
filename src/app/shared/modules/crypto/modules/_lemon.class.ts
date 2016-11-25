@@ -30,7 +30,12 @@ export class _Lemon extends Lemon {
      */
     public do() {
 
-        let returnData = {
+        interface IReturnData {
+            identifier: string;
+            folders: Array<Object>;
+        };
+
+        let returnData:IReturnData = {
             "identifier" : this._Identifier,
             "folders" : []
         };
