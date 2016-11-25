@@ -4,6 +4,7 @@ import { _Abaddon } from './crypto/modules/_abaddon.class';
 import { _ADFVGX } from './crypto/modules/_adfvgx.class';
 import { _AMSCO } from './crypto/modules/_amsco.class';
 import { _Atbash } from './crypto/modules/_atbash.class';
+import { _Gronsfeld } from './crypto/modules/_gronsfeld.class';
 import { _Lemon } from './crypto/modules/_lemon.class';
 import { _Porta } from './crypto/modules/_porta.class';
 import { _Rotations } from './crypto/modules/_rotations.class';
@@ -16,6 +17,7 @@ export class MSCrypto {
         new _ADFVGX(),
         new _AMSCO(),
         new _Atbash(),
+        new _Gronsfeld(),
         new _Lemon(),
         new _Porta(),
         new _Rotations(),
