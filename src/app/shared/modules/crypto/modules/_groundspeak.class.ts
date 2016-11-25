@@ -78,8 +78,6 @@ export class _Groundspeak extends Groundspeak {
 
             if (numbers.length) {
 
-                console.log(numbers);
-
                 let codes:string = super.numbers2Codes(numbers).join(" ");
 
                 returnData.folders.push({"identifier" : identifierNumbers2Codes, "data" : codes});
