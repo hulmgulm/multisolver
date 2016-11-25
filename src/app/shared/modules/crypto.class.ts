@@ -9,6 +9,7 @@ import { _Beaufort } from './crypto/modules/_beaufort.class';
 import { _Gronsfeld } from './crypto/modules/_gronsfeld.class';
 import { _Groundspeak } from './crypto/modules/_groundspeak.class';
 import { _Lemon } from './crypto/modules/_lemon.class';
+import { _Polybios } from './crypto/modules/_polybios.class';
 import { _Porta } from './crypto/modules/_porta.class';
 import { _Rotations } from './crypto/modules/_rotations.class';
 import { _Vigenere } from './crypto/modules/_vigenere.class';
@@ -25,6 +26,7 @@ export class MSCrypto {
         new _Gronsfeld(),
         new _Groundspeak(),
         new _Lemon(),
+        new _Polybios(),
         new _Porta(),
         new _Rotations(),
         new _Vigenere()
