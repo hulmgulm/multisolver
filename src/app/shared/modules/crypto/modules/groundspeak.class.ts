@@ -73,6 +73,7 @@ export class Groundspeak {
                     number = Math.floor(number / 31);
                 } while (number > 0);
 
+                codes.push(codeString);
             }
         }
 

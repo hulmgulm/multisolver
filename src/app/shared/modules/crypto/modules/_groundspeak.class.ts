@@ -46,12 +46,20 @@ export class _Groundspeak extends Groundspeak {
             let inputString = DataContainers.getInstance().getData("AlphaLatinNumWhiteSpace");
             let identifierCodes2Numbers:string = this._Identifier + "_CODES2NUMBERS";
 
-            // Split by whitespace
-            let codes:string[] = inputString.split(/[\s\r\n\t]+/);
+            let codes:string[] = [];
+            let regEx:RegExp = /(GC|PR).+/ig;
+            let result:RegExpExecArray = null;
 
-            let numbers:string = super.codes2Numbers(codes).map(function(n:number){ return n.toString(); } ).join(" ");
+            while ( result = regEx.exec(inputString) ) {
+                codes.push( result[0] );
+            }
 
-            returnData.folders.push({"identifier" : identifierCodes2Numbers, "data" : numbers});
+            if (codes.length) {
+
+                let numbers:string = super.codes2Numbers(codes).map(function(n:number){ return n.toString(); } ).join(" ");
+
+                returnData.folders.push({"identifier" : identifierCodes2Numbers, "data" : numbers});
+            }
         }
 
         /* Numbers2Codes */
@@ -68,9 +76,14 @@ export class _Groundspeak extends Groundspeak {
                 numbers.push( parseInt(result[0], 10) );
             }
 
-            let codes:string = super.numbers2Codes(numbers).join(" ");
+            if (numbers.length) {
 
-            returnData.folders.push({"identifier" : identifierNumbers2Codes, "data" : codes});
+                console.log(numbers);
+
+                let codes:string = super.numbers2Codes(numbers).join(" ");
+
+                returnData.folders.push({"identifier" : identifierNumbers2Codes, "data" : codes});
+            }
         }
 
         return returnData;
