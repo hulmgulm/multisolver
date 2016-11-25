@@ -22,7 +22,7 @@ export class Lemon {
 
     public decipher(inputString:string, counterClockwise:boolean = false):string {
 
-		inputString = inputString.replace(/[^\s\r\n\t]+/gm, "");
+		inputString = inputString.replace(/[\s\r\n\t]+/gm, "");
 
 		let odd:string = inputString.split("").map(function(c:string, index:number){ return (index % 2 ? c : ""); }).join("");
 		let even:string = inputString.split("").map(function(c:string, index:number){ return (index % 2 ? "" : c); }).join("");
