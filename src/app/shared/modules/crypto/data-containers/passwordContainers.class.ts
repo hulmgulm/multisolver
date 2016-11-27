@@ -13,7 +13,8 @@ export class PasswordContainers {
         {
             "AlphaLatin" : new DataContainerGeneric(/[^A-Z]+/ig),
             "AlphaLatinNum" : new DataContainerGeneric(/[^A-Z0-9]+/ig),
-            "Digits" : new DataContainerGeneric(/[^0-9]+/ig)
+            "Digits" : new DataContainerGeneric(/[^0-9]+/ig),
+            "Trimmed" : new DataContainerGeneric(/^[\s\r\n]+|[\s\r\n]+$/g)
         },
         {
             "AlphaLatin" : new DataContainerGeneric(/[^A-Z]+/ig),
