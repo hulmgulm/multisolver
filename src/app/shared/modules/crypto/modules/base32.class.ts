@@ -31,12 +31,18 @@ export class Base32 {
         inputString = inputString.replace(/[^A-Z2-7\s\r\n]/g, "");
 
         return inputString.split(/[\s\r\n]+/).map(function(part:string):string {
-            return part.split("").map(function(c:string):string {
+            let bits:RegExpMatchArray = part.split("").map(function(c:string):string {
                 let bits:string = this.lookUp.indexOf(c).toString(2);
                 return "00000".substr(bits.length) + bits;
-            }.bind(this)).join("").match(/.{8,8}/g).map(function(c:string):string {
-                return String.fromCharCode( parseInt(c, 2) );
-            }).join("");
+            }.bind(this)).join("").match(/.{8,8}/g);
+
+            if (bits) {
+                return bits.map(function(c:string):string {
+                    return String.fromCharCode( parseInt(c, 2) );
+                }).join("");
+            }
+
+            return "";
         }.bind(this)).join(" ");
 	}
 }
