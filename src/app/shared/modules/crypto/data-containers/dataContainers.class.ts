@@ -14,9 +14,9 @@ export class DataContainers {
         "AlphaLatin" : new DataContainerGeneric(/[^A-Z]+/ig),
         "AlphaLatinNum" : new DataContainerGeneric(/[^A-Z0-9]+/ig),
         "AlphaLatinWhiteSpace" : new DataContainerGeneric(/[^A-Z\s\r\n]+/ig),
-        "AlphaLatinNumWhiteSpace" : new DataContainerGeneric(/[^A-Z0-9\s\r\n\t]+/ig),
+        "AlphaLatinNumWhiteSpace" : new DataContainerGeneric(/[^A-Z0-9\s\r\n]+/ig),
         "Digits" : new DataContainerGeneric(/[^0-9]+/g),
-        "DigitsWhiteSpace" : new DataContainerGeneric(/[^0-9\s\r\n\t]+/g),
+        "DigitsWhiteSpace" : new DataContainerGeneric(/[^0-9\s\r\n]+/g),
         "Whitespace" : new DataContainerGeneric(/[^\s\r\n]+/g),
         "NonWhitespace" : new DataContainerGeneric(/[\s\r\n]+/g),
         "NonAlphaNum" : new DataContainerGeneric(/[A-Z0-9]+/ig)
@@ -47,6 +47,15 @@ export class DataContainers {
 
         if ( name in this._containers ) {
             return this._containers[name].getData();
+        }
+
+        throw new Error("Error: Could not find data container '" + name + "'.");
+    }
+
+    public uniqueChars(name:string):number {
+
+        if ( name in this._containers ) {
+            return this._containers[name].uniqueChars();
         }
 
         throw new Error("Error: Could not find data container '" + name + "'.");
