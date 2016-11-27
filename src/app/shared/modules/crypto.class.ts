@@ -5,6 +5,7 @@ import { _ADFVGX } from './crypto/modules/_adfvgx.class';
 import { _AMSCO } from './crypto/modules/_amsco.class';
 import { _Atbash } from './crypto/modules/_atbash.class';
 import { _Autokey } from './crypto/modules/_autokey.class';
+import { _Base32 } from './crypto/modules/_base32.class';
 import { _Beaufort } from './crypto/modules/_beaufort.class';
 import { _Bifid } from './crypto/modules/_bifid.class';
 import { _Gronsfeld } from './crypto/modules/_gronsfeld.class';
@@ -24,6 +25,7 @@ export class MSCrypto {
         new _AMSCO(),
         new _Atbash(),
         new _Autokey(),
+        new _Base32(),
         new _Beaufort(),
         new _Bifid(),
         new _Gronsfeld(),
