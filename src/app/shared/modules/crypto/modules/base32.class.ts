@@ -28,7 +28,7 @@ export class Base32 {
 
     public decode(inputString:string):string {
 
-        inputString = inputString.replace(/[^A-Z2-7\s\r\n]/g, "");
+        inputString = inputString.replace(/[^A-Z2-7\s\r\n]/g, "").trim();
 
         return inputString.split(/[\s\r\n]+/).map(function(part:string):string {
             let bits:RegExpMatchArray = part.split("").map(function(c:string):string {
