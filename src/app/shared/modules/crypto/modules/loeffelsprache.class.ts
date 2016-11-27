@@ -24,29 +24,25 @@ interface IPattern {
 
 export class Loeffelsprache {
 
-    private lookUp:IPattern;
-
-    constructor() {
-        this.lookUp = {
-            "ele[wf]e" : "e",
-            "ale[wf]a" : "a",
-            "ile[wf]i" : "i",
-            "ole[wf]o" : "o",
-            "ule[wf]u" : "u",
-            "üle[wf]ü" : "ü",
-            "öle[wf]ö" : "ö",
-            "äle[wf]ä" : "ä",
-            "ile[wf]ie" : "ie",
-            "iele[wf]ie" : "ie",
-            "ale[wf]au" : "au",
-            "aule[wf]au" : "au",
-            "ele[wf]ei" : "ei",
-            "eile[wf]ei" : "ei",
-            "oule[wf]ou" : "ou",
-            "eule[wf]eu" : "eu",
-            "eale[wf]a" : "ea"
-        };
-    }
+    private lookUp:IPattern = {
+        "ele[wf]e" : "e",
+        "ale[wf]a" : "a",
+        "ile[wf]i" : "i",
+        "ole[wf]o" : "o",
+        "ule[wf]u" : "u",
+        "üle[wf]ü" : "ü",
+        "öle[wf]ö" : "ö",
+        "äle[wf]ä" : "ä",
+        "ile[wf]ie" : "ie",
+        "iele[wf]ie" : "ie",
+        "ale[wf]au" : "au",
+        "aule[wf]au" : "au",
+        "ele[wf]ei" : "ei",
+        "eile[wf]ei" : "ei",
+        "oule[wf]ou" : "ou",
+        "eule[wf]eu" : "eu",
+        "eale[wf]a" : "ea"
+    };
 
     public translate(inputString:string):string {
 
