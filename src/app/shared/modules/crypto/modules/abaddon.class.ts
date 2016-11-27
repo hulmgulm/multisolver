@@ -54,6 +54,15 @@ export class Abaddon {
             "¥µµ" : " "
         };
 
+    private guessCombinations:string[] = [
+        "¥µþ",
+        "¥þµ",
+        "µ¥þ",
+        "µþ¥",
+        "þµ¥",
+        "þ¥µ"
+    ];
+
     public decode(inputString:string):string {
 
         inputString = inputString.toLowerCase()
@@ -81,5 +90,32 @@ export class Abaddon {
         }
 
         return returnString;
+    }
+
+    public guess(inputString:string):string[] {
+
+        inputString = inputString.replace(/[\s\r\n]+/g, "");
+
+        let differentChars:string[] = [];
+        let returnArray:string[] = [];
+
+        for (let c of inputString) {
+            if (differentChars.indexOf(c) < 0) {
+                differentChars.push(c);
+                if (differentChars.length > 3) {
+                    break;
+                }
+            }
+        }
+
+        if (3 === differentChars.length) {
+            returnArray = this.guessCombinations.map(function(combination:string):string {
+                return this.decode(inputString.split("").map(function(c:string):string {
+                    return combination[differentChars.indexOf(c)];
+                }).join(""));
+            }, this);
+        }
+
+        return returnArray;
     }
 }

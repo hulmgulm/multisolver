@@ -24,26 +24,47 @@ import { DataContainers } from '../data-containers/dataContainers.class';
 export class _Abaddon extends Abaddon {
 
     private _Identifier:string = "ABADDON";
-    // private _IdentifierPostfixNormal:string = "NORMAL";
+    private _IdentifierPostfixNormal:string = "NORMAL";
+    private _IdentifierPostfixGuess:string = "GUESS";
 
     /*
      *  Main routine
      */
     public do() {
 
-        let returnData = {
+        interface IReturnData {
+            identifier: string;
+            folders: Array<Object>;
+        };
+
+        let returnData:IReturnData = {
             "identifier" : this._Identifier,
-            "data" : ""
+            "folders" : []
         };
 
         /* Normal */
         if ( this.checkConstraintsNormal() ) {
 
-            let inputString = DataContainers.getInstance().getData("NonAlphaNum");
-            // let identifierNormal:string = this._Identifier + "_" + this._IdentifierPostfixNormal;
+            let data:string = super.decode(DataContainers.getInstance().getData("NonAlphaNum"));
+            let identifierNormal:string = this._Identifier + "_" + this._IdentifierPostfixNormal;
 
-            returnData.data = super.decode(inputString);
+            if (data) {
+                returnData.folders.push({"identifier" : identifierNormal, "data" : data});
+            }
+        }
 
+         /* Guess-Mode */
+         if ( this.checkConstraintsGuess() ) {
+             let identifierGuess:string = this._Identifier + "_" + this._IdentifierPostfixGuess;
+             let data:string[] = super.guess(DataContainers.getInstance().getData("Trimmed"));
+             let tmpFolders:{identifier:string, data:string}[] = [];
+
+            for (let d:number = 0; d < data.length; d++) {
+                let identifier:string = identifierGuess + "_" + (d + 1).toString();
+                tmpFolders.push({"identifier" : identifier, "data" : data[d]});
+            }
+
+            returnData.folders.push({"identifier" : identifierGuess, "folders" : tmpFolders});
         }
 
         return returnData;
@@ -56,5 +77,14 @@ export class _Abaddon extends Abaddon {
      */
     private checkConstraintsNormal():boolean {
        return DataContainers.getInstance().getData("NonAlphaNum").length > 0;
+    }
+
+    /*
+     *  Checks if the constraints for 'guess' are met
+     * 
+     *  \returns TRUE, if constraints are met
+     */
+    private checkConstraintsGuess():boolean {
+       return DataContainers.getInstance().uniqueChars("NonWhitespace") === 3;
     }
 }
