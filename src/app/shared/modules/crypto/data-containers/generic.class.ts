@@ -18,4 +18,8 @@ export class DataContainerGeneric {
     public getData():string {
         return this._dataString;
     }
+
+    public uniqueChars():number {
+        return this._uniqueChars;
+    }
 }
