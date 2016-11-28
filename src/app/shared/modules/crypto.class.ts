@@ -14,6 +14,7 @@ import { _Beaufort } from './crypto/modules/_beaufort.class';
 import { _Bifid } from './crypto/modules/_bifid.class';
 import { _Braille } from './crypto/modules/_braille.class';
 import { _Brainfuck } from './crypto/modules/_brainfuck.class';
+import { _Chaocipher } from './crypto/modules/_chaocipher.class';
 import { _EnclosedAreas } from './crypto/modules/_enclosed_areas.class';
 import { _Gronsfeld } from './crypto/modules/_gronsfeld.class';
 import { _Groundspeak } from './crypto/modules/_groundspeak.class';
@@ -44,6 +45,7 @@ export class MSCrypto {
         new _Bifid(),
         new _Braille(),
         new _Brainfuck(),
+        new _Chaocipher(),
         new _EnclosedAreas(),
         new _Gronsfeld(),
         new _Groundspeak(),
