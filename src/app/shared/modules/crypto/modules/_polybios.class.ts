@@ -65,7 +65,6 @@ export class _Polybios extends Polybios {
     }
 
     private checkConstraints5x5():boolean {
-       // We need at least a char to rotate
        return DataContainers.getInstance().getData("Digits").length > 0;
     }
 
