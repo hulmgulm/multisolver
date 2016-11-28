@@ -3,6 +3,7 @@ import { PasswordContainers } from './crypto/data-containers/passwordContainers.
 import { _Abaddon } from './crypto/modules/_abaddon.class';
 import { _ADFVGX } from './crypto/modules/_adfvgx.class';
 import { _AMSCO } from './crypto/modules/_amsco.class';
+import { _ASCII } from './crypto/modules/_ascii.class';
 import { _Atbash } from './crypto/modules/_atbash.class';
 import { _Autokey } from './crypto/modules/_autokey.class';
 import { _Bacon } from './crypto/modules/_bacon.class';
@@ -31,6 +32,7 @@ export class MSCrypto {
         new _Abaddon(),
         new _ADFVGX(),
         new _AMSCO(),
+        new _ASCII(),
         new _Atbash(),
         new _Autokey(),
         new _Bacon(),
