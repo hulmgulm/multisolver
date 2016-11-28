@@ -9,6 +9,7 @@ import { _Base32 } from './crypto/modules/_base32.class';
 import { _Beaufort } from './crypto/modules/_beaufort.class';
 import { _Bifid } from './crypto/modules/_bifid.class';
 import { _Brainfuck } from './crypto/modules/_brainfuck.class';
+import { _EnclosedAreas } from './crypto/modules/_enclosed_areas.class';
 import { _Gronsfeld } from './crypto/modules/_gronsfeld.class';
 import { _Groundspeak } from './crypto/modules/_groundspeak.class';
 import { _Lemon } from './crypto/modules/_lemon.class';
@@ -32,6 +33,7 @@ export class MSCrypto {
         new _Beaufort(),
         new _Bifid(),
         new _Brainfuck(),
+        new _EnclosedAreas(),
         new _Gronsfeld(),
         new _Groundspeak(),
         new _Lemon(),
