@@ -8,6 +8,7 @@ import { _Autokey } from './crypto/modules/_autokey.class';
 import { _Bacon } from './crypto/modules/_bacon.class';
 import { _Base32 } from './crypto/modules/_base32.class';
 import { _Base64 } from './crypto/modules/_base64.class';
+import { _Baudot } from './crypto/modules/_baudot.class';
 import { _Beaufort } from './crypto/modules/_beaufort.class';
 import { _Bifid } from './crypto/modules/_bifid.class';
 import { _Brainfuck } from './crypto/modules/_brainfuck.class';
@@ -34,6 +35,7 @@ export class MSCrypto {
         new _Bacon(),
         new _Base32(),
         new _Base64(),
+        new _Baudot(),
         new _Beaufort(),
         new _Bifid(),
         new _Brainfuck(),
