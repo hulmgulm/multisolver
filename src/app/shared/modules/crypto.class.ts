@@ -17,6 +17,7 @@ import { _Gronsfeld } from './crypto/modules/_gronsfeld.class';
 import { _Groundspeak } from './crypto/modules/_groundspeak.class';
 import { _Lemon } from './crypto/modules/_lemon.class';
 import { _Loeffelsprache } from './crypto/modules/_loeffelsprache.class';
+import { _Murray } from './crypto/modules/_murray.class';
 import { _Polybios } from './crypto/modules/_polybios.class';
 import { _Porta } from './crypto/modules/_porta.class';
 import { _Rotations } from './crypto/modules/_rotations.class';
@@ -44,6 +45,7 @@ export class MSCrypto {
         new _Groundspeak(),
         new _Lemon(),
         new _Loeffelsprache(),
+        new _Murray(),
         new _Polybios(),
         new _Porta(),
         new _Rotations(),
