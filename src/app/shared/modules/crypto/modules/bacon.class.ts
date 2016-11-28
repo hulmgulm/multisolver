@@ -52,6 +52,8 @@ export class Bacon {
                 return (value < this.pattern.length) ? this.pattern[value] : "";
             }, this).join("");
         }
+
+        return "";
 	}
 
     public firstCharUpperLower(inputString:string, inversed:boolean = false):string {
