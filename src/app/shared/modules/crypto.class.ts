@@ -17,6 +17,7 @@ import { _Brainfuck } from './crypto/modules/_brainfuck.class';
 import { _Chaocipher } from './crypto/modules/_chaocipher.class';
 import { _Copiale } from './crypto/modules/_copiale.class';
 import { _Decabit } from './crypto/modules/_decabit.class';
+import { _Echo } from './crypto/modules/_echo.class';
 import { _EnclosedAreas } from './crypto/modules/_enclosed_areas.class';
 import { _Gade } from './crypto/modules/_gade.class';
 import { _Gronsfeld } from './crypto/modules/_gronsfeld.class';
@@ -51,6 +52,7 @@ export class MSCrypto {
         new _Chaocipher(),
         new _Copiale(),
         new _Decabit(),
+        new _Echo(),
         new _EnclosedAreas(),
         new _Gade(),
         new _Gronsfeld(),
