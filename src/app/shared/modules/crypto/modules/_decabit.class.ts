@@ -55,7 +55,6 @@ export class _Decabit extends Decabit {
 
          /* Guess-Mode */
          if ( this.checkConstraintsGuess() ) {
-              console.log("----guess---");
              let identifierGuess:string = this._Identifier + "_" + this._IdentifierPostfixGuess;
              let data:string[] = super.guess(DataContainers.getInstance().getData("Trimmed"));
              let tmpFolders:{identifier:string, data:string}[] = [];
@@ -66,8 +65,6 @@ export class _Decabit extends Decabit {
             }
 
             returnData.folders.push({"identifier" : identifierGuess, "folders" : tmpFolders});
-        } else {
-            console.log("-------");
         }
 
         return returnData;
