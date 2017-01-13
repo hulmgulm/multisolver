@@ -10,6 +10,7 @@ export class DataContainers {
 
     // Data containers
     private _containers:IContainer = {
+        "Unchanged" : new DataContainerGeneric(/[]/),
         "Trimmed" : new DataContainerGeneric(/^[\s\r\n]+|[\s\r\n]+$/g),
         "AlphaLatin" : new DataContainerGeneric(/[^A-Z]+/ig),
         "AlphaLatinNum" : new DataContainerGeneric(/[^A-Z0-9]+/ig),
