@@ -16,6 +16,7 @@ import { _Braille } from './crypto/modules/_braille.class';
 import { _Brainfuck } from './crypto/modules/_brainfuck.class';
 import { _Chaocipher } from './crypto/modules/_chaocipher.class';
 import { _Copiale } from './crypto/modules/_copiale.class';
+import { _Cow } from './crypto/modules/_cow.class';
 import { _Decabit } from './crypto/modules/_decabit.class';
 import { _Echo } from './crypto/modules/_echo.class';
 import { _EnclosedAreas } from './crypto/modules/_enclosed_areas.class';
@@ -51,6 +52,7 @@ export class MSCrypto {
         new _Brainfuck(),
         new _Chaocipher(),
         new _Copiale(),
+        new _Cow(),
         new _Decabit(),
         new _Echo(),
         new _EnclosedAreas(),
