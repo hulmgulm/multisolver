@@ -18,25 +18,28 @@
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   */
 
+interface LoopUp {
+    [identifier: string] : number;
+};
 
 export class Cow {
 
     // Opcodes
-    readonly OP_BRACKET_CLOSE:number = 0;
-    readonly OP_MOVE_LEFT:number = 1;
-    readonly OP_MOVE_RIGHT:number = 2;
-    readonly OP_EXECUTE_PTR:number = 3;
-    readonly OP_I_O:number = 4;
-    readonly OP_DEC:number = 5;
-    readonly OP_INC:number = 6;
-    readonly OP_BRACKET_OPEN:number = 7;
-    readonly OP_ZERO:number = 8;
-    readonly OP_REG:number = 9;
-    readonly OP_PRINT:number = 10;
-    readonly OP_READ:number = 11;
+    private readonly OP_BRACKET_CLOSE:number = 0;
+    private readonly OP_MOVE_LEFT:number = 1;
+    private readonly OP_MOVE_RIGHT:number = 2;
+    private readonly OP_EXECUTE_PTR:number = 3;
+    private readonly OP_I_O:number = 4;
+    private readonly OP_DEC:number = 5;
+    private readonly OP_INC:number = 6;
+    private readonly OP_BRACKET_OPEN:number = 7;
+    private readonly OP_ZERO:number = 8;
+    private readonly OP_REG:number = 9;
+    private readonly OP_PRINT:number = 10;
+    private readonly OP_READ:number = 11;
 
     // Opcode lookup
-    readonly OpcodeLookup = {
+    readonly OpcodeLookup:LoopUp = {
         "moo" : this.OP_BRACKET_CLOSE,
 		"mOo" : this.OP_MOVE_LEFT,
 		"moO" : this.OP_MOVE_RIGHT,
@@ -51,14 +54,14 @@ export class Cow {
 		"oom" : this.OP_READ
     };
 
-    codePointer:number = 0;
-    opCodes:Array<number> = [];
-    memoryPointer:number = 0;
-    memory:Array<number> = [];
-    returnString:string = "";
-    stdinPointer:number = 0;
-    stdin:string = "";
-    register:number = null;
+    private codePointer:number = 0;
+    private opCodes:Array<number> = [];
+    private memoryPointer:number = 0;
+    private memory:Array<number> = [];
+    private returnString:string = "";
+    private stdinPointer:number = 0;
+    private stdin:string = "";
+    private register:number = null;
 
     public interpret(code:string, input:string = ""):string {
 
