@@ -53,8 +53,8 @@ export class _Baudot extends Baudot {
             }
         }
 
-         /* Guess-Mode */
-         if ( this.checkConstraintsGuess() ) {
+        /* Guess-Mode */
+        if ( this.checkConstraintsGuess() ) {
 
             // Try to find best-matching combination
             let bestMatching:string = "";

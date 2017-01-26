@@ -43,8 +43,8 @@ export class Polybios {
 		return returnString;
 	}
 
-    private createNewMatrix(oldMatrix:string, newMatrix:string):string {
-		let insertPosition:number = 0;
+  private createNewMatrix(oldMatrix:string, newMatrix:string):string {
+    let insertPosition:number = 0;
 		for (let c:number = 0; c < newMatrix.length; c++) {
 			let offset:number = oldMatrix.substring(insertPosition).indexOf(newMatrix[c]);
 			if (offset !== -1) {
