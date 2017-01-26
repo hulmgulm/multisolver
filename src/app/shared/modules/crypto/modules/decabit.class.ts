@@ -182,7 +182,6 @@ export class Decabit {
     }
 
     public guess(inputString:string, numeric:boolean = false):string[] {
-        inputString = inputString.replace(/[\s\r\n]+/g, "");
 
         let differentChars:string[] = [];
         let returnArray:string[] = [];

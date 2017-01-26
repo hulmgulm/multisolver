@@ -58,13 +58,14 @@ export class _TomTom extends TomTom {
 
             // Try to find best-matching combination
             let bestMatching:string = "";
-            if (DataContainers.getInstance().uniqueChars("Unchanged") === 3) {
+            let DIFFERENT_CHARS:number = 3;
+            if (DataContainers.getInstance().uniqueChars("Unchanged") === DIFFERENT_CHARS) {
                 bestMatching = DataContainers.getInstance().getData("Unchanged");
-            } else if (DataContainers.getInstance().uniqueChars("Trimmed") === 3) {
+            } else if (DataContainers.getInstance().uniqueChars("Trimmed") === DIFFERENT_CHARS) {
                 bestMatching = DataContainers.getInstance().getData("Trimmed");
-            } else if (DataContainers.getInstance().uniqueChars("NoNewline") === 3) {
+            } else if (DataContainers.getInstance().uniqueChars("NoNewline") === DIFFERENT_CHARS) {
                 bestMatching = DataContainers.getInstance().getData("NoNewline");
-            } else if (DataContainers.getInstance().uniqueChars("NonWhitespace") === 3) {
+            } else if (DataContainers.getInstance().uniqueChars("NonWhitespace") === DIFFERENT_CHARS) {
                 bestMatching = DataContainers.getInstance().getData("NonWhitespace");
             }
 

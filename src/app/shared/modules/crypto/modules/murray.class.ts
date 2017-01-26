@@ -132,8 +132,6 @@ export class Murray {
 
 	public guess(inputString:string):string[] {
 
-        inputString = inputString.replace(/[\s\r\n]+/g, "");
-
         let differentChars:string[] = [];
         let returnArray:string[] = [];
 

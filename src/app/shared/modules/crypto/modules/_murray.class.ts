@@ -55,8 +55,22 @@ export class _Murray extends Murray {
 
          /* Guess-Mode */
          if ( this.checkConstraintsGuess() ) {
+
+             // Try to find best-matching combination
+            let bestMatching:string = "";
+            let DIFFERENT_CHARS:number = 2;
+            if (DataContainers.getInstance().uniqueChars("Unchanged") === DIFFERENT_CHARS) {
+                bestMatching = DataContainers.getInstance().getData("Unchanged");
+            } else if (DataContainers.getInstance().uniqueChars("Trimmed") === DIFFERENT_CHARS) {
+                bestMatching = DataContainers.getInstance().getData("Trimmed");
+            } else if (DataContainers.getInstance().uniqueChars("NoNewline") === DIFFERENT_CHARS) {
+                bestMatching = DataContainers.getInstance().getData("NoNewline");
+            } else if (DataContainers.getInstance().uniqueChars("NonWhitespace") === DIFFERENT_CHARS) {
+                bestMatching = DataContainers.getInstance().getData("NonWhitespace");
+            }
+
              let identifierGuess:string = this._Identifier + "_" + this._IdentifierPostfixGuess;
-             let data:string[] = super.guess(DataContainers.getInstance().getData("Trimmed"));
+             let data:string[] = super.guess(bestMatching);
              let tmpFolders:{identifier:string, data:string}[] = [];
 
             for (let d:number = 0; d < data.length; d++) {
@@ -75,6 +89,6 @@ export class _Murray extends Murray {
     }
 
     private checkConstraintsGuess():boolean {
-       return DataContainers.getInstance().uniqueChars("NonWhitespace") === 2;
+       return DataContainers.getInstance().uniqueChars("Unchanged") >= 2;
     }
 }

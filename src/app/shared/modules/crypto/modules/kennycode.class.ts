@@ -55,8 +55,6 @@ export class Kennycode {
 
     public guess(inputString:string):Array<string> {
 
-        inputString = inputString.replace(/[\s\r\n]+/g, "");
-
         let differentChars:Array<string> = [];
         let returnArray:Array<string> = [];
 
