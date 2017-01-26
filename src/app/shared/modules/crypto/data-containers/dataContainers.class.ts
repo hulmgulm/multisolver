@@ -20,6 +20,7 @@ export class DataContainers {
         "DigitsWhiteSpace" : new DataContainerGeneric(/[^0-9\s\r\n]+/g),
         "Whitespace" : new DataContainerGeneric(/[^\s\r\n]+/g),
         "NonWhitespace" : new DataContainerGeneric(/[\s\r\n]+/g),
+        "NoNewline" : new DataContainerGeneric(/[\r\n]+/g),
         "NonAlphaNum" : new DataContainerGeneric(/[A-Z0-9]+/ig)
     };
 
