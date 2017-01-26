@@ -23,6 +23,7 @@ import { _EnclosedAreas } from './crypto/modules/_enclosed_areas.class';
 import { _Gade } from './crypto/modules/_gade.class';
 import { _Gronsfeld } from './crypto/modules/_gronsfeld.class';
 import { _Groundspeak } from './crypto/modules/_groundspeak.class';
+import { _Kennycode } from './crypto/modules/_kennycode.class';
 import { _Lemon } from './crypto/modules/_lemon.class';
 import { _Loeffelsprache } from './crypto/modules/_loeffelsprache.class';
 import { _Murray } from './crypto/modules/_murray.class';
@@ -59,6 +60,7 @@ export class MSCrypto {
         new _Gade(),
         new _Gronsfeld(),
         new _Groundspeak(),
+        new _Kennycode(),
         new _Lemon(),
         new _Loeffelsprache(),
         new _Murray(),
