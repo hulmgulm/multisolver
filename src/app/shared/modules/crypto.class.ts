@@ -31,6 +31,7 @@ import { _Polybios } from './crypto/modules/_polybios.class';
 import { _Porta } from './crypto/modules/_porta.class';
 import { _Rotations } from './crypto/modules/_rotations.class';
 import { _T9 } from './crypto/modules/_t9.class';
+import { _TomTom } from './crypto/modules/_tomtom.class';
 import { _Trithemius } from './crypto/modules/_trithemius.class';
 import { _Vigenere } from './crypto/modules/_vigenere.class';
 
@@ -68,6 +69,7 @@ export class MSCrypto {
         new _Porta(),
         new _Rotations(),
         new _T9(),
+        new _TomTom(),
         new _Trithemius(),
         new _Vigenere()
     ];
