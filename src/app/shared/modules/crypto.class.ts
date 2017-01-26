@@ -21,6 +21,7 @@ import { _Decabit } from './crypto/modules/_decabit.class';
 import { _Echo } from './crypto/modules/_echo.class';
 import { _EnclosedAreas } from './crypto/modules/_enclosed_areas.class';
 import { _Gade } from './crypto/modules/_gade.class';
+import { _Geohash } from './crypto/modules/_geohash.class';
 import { _Gronsfeld } from './crypto/modules/_gronsfeld.class';
 import { _Groundspeak } from './crypto/modules/_groundspeak.class';
 import { _Kennycode } from './crypto/modules/_kennycode.class';
@@ -59,6 +60,7 @@ export class MSCrypto {
         new _Echo(),
         new _EnclosedAreas(),
         new _Gade(),
+        new _Geohash(),
         new _Gronsfeld(),
         new _Groundspeak(),
         new _Kennycode(),
