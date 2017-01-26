@@ -196,8 +196,6 @@ export class Decabit {
             }
         }
 
-        console.log(differentChars);
-
         if (2 === differentChars.length) {
             returnArray = this.guessCombinations.map(function(combination:string):string {
                 return this.decode(inputString.split("").map(function(c:string):string {
@@ -205,8 +203,6 @@ export class Decabit {
                 }).join(""), numeric);
             }, this);
         }
-
-        console.log(returnArray);
 
         return returnArray;
     }
