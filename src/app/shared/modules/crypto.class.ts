@@ -27,6 +27,7 @@ import { _Groundspeak } from './crypto/modules/_groundspeak.class';
 import { _Kennycode } from './crypto/modules/_kennycode.class';
 import { _Lemon } from './crypto/modules/_lemon.class';
 import { _Loeffelsprache } from './crypto/modules/_loeffelsprache.class';
+import { _MaidenheadLocator } from './crypto/modules/_maidenhead_locator.class';
 import { _Murray } from './crypto/modules/_murray.class';
 import { _Polybios } from './crypto/modules/_polybios.class';
 import { _Porta } from './crypto/modules/_porta.class';
@@ -67,6 +68,7 @@ export class MSCrypto {
         new _Kennycode(),
         new _Lemon(),
         new _Loeffelsprache(),
+        new _MaidenheadLocator(),
         new _Murray(),
         new _Polybios(),
         new _Porta(),
