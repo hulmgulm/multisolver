@@ -78,7 +78,7 @@ export class Cow {
         // sanitize code
         code = code.replace(/[^mo]+/ig, "");
 
-        if (code) {
+        if (code && code.length >= 3) {
             code.match(/[mo]{3,3}/ig).map(function (opCode:string) {
                 if (this.OpcodeLookup.hasOwnProperty(opCode)) {
                     this.opCodes.push(this.OpcodeLookup[opCode]);
