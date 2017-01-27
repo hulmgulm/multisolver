@@ -15,6 +15,7 @@ import { _Bifid } from './crypto/modules/_bifid.class';
 import { _Braille } from './crypto/modules/_braille.class';
 import { _Brainfuck } from './crypto/modules/_brainfuck.class';
 import { _Chaocipher } from './crypto/modules/_chaocipher.class';
+import { _Checkerboards } from './crypto/modules/_checkerboards.class';
 import { _Copiale } from './crypto/modules/_copiale.class';
 import { _Cow } from './crypto/modules/_cow.class';
 import { _Decabit } from './crypto/modules/_decabit.class';
@@ -56,6 +57,7 @@ export class MSCrypto {
         new _Braille(),
         new _Brainfuck(),
         new _Chaocipher(),
+        new _Checkerboards(),
         new _Copiale(),
         new _Cow(),
         new _Decabit(),
