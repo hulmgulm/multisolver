@@ -64,7 +64,7 @@ export class _Decabit extends Decabit {
             } else if (DataContainers.getInstance().uniqueChars("Trimmed") === DIFFERENT_CHARS) {
                 bestMatching = DataContainers.getInstance().getData("Trimmed");
             } else if (DataContainers.getInstance().uniqueChars("NoNewline") === DIFFERENT_CHARS) {
-                bestMatching = DataContainers.getInstance().getData("NoNewline");
+                bestMatching = DataContainers.getInstance().getData("Trimmed").replace(/[\r\n]/g, " ");
             } else if (DataContainers.getInstance().uniqueChars("NonWhitespace") === DIFFERENT_CHARS) {
                 bestMatching = DataContainers.getInstance().getData("NonWhitespace");
             }
